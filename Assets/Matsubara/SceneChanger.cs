@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public static void SceneChange(string sceneName)
+    private void Start()
+    {
+        if (FindObjectOfType<SceneChanger>() != null)
+        {
+            Destroy(GetComponent<SceneChanger>());
+        }
+    }
+    public void SceneChange(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
