@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Header("床のタグ")] string _groundTag;
     [SerializeField, Header("弾のタグ")] string _bulletTag;
     [SerializeField] float _damage = 0.1f;
+    [SerializeField] GameObject _destroyParticle;
     bool _isCollision = false;
     private void Update()
     {
@@ -26,6 +27,8 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag(_bulletTag))
         {
             Destroy(this.gameObject);
+            var par = Instantiate(_destroyParticle);
+            Destroy(par, 4);
         }
         else if (!collision.gameObject.CompareTag(_groundTag))
         {
