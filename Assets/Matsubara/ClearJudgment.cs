@@ -9,12 +9,16 @@ public class ClearJudgment : MonoBehaviour
     int _destroyEnemyCount = 0;
     SceneChanger _changer;
     [SerializeField, Header("クリアシーンの名前")] string _clearSceneName;
+    List<GameObject> _bulletList;
+    [SerializeField] GameObject _gameOverPanel;
     void Start()
     {
         _enemy = GameObject.FindGameObjectsWithTag(_enemyTag);
         _changer = FindAnyObjectByType<SceneChanger>();
+        _bulletList = FindAnyObjectByType<Player>().BulletList;
+        _gameOverPanel.SetActive(false);
     }
-    private void FixedUpdate()
+    private void Update()
     {
         foreach (GameObject enemy in _enemy)
         {
@@ -27,9 +31,17 @@ public class ClearJudgment : MonoBehaviour
         {
             GameClear();
         }
+        if (_bulletList.Count < 0)
+        {
+            GameOver();
+        }
     }
     private void GameClear()
     {
         _changer.SceneChange(_clearSceneName);
+    }
+    private void GameOver()
+    {
+        _gameOverPanel.SetActive(true);
     }
 }

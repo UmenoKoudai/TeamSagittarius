@@ -370,6 +370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyTag: Enemy
+  _clearSceneName: 
+  _gameOverPanel: {fileID: 0}
 --- !u!4 &1179364210
 Transform:
   m_ObjectHideFlags: 0
@@ -535,3 +537,4 @@ MonoBehaviour:
   _groundTag: Ground
   _bulletTag: Bullet
   _damage: 0.1
+  _destroyParticle: {fileID: 0}
