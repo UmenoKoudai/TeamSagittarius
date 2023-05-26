@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1336771615107972811}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.06700325, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 910483e3182cc4d4090cb845e075daae, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e588c5859dccd646a50cb96d2337dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effect: {fileID: 987678264496052944, guid: 0dcadb05a3c9aa340b6c06b31797b9cd, type: 3}
+  _effect: {fileID: 3424375979669577294, guid: b68eae65e70408d499f7c3cab45df962, type: 3}
 --- !u!199 &-6472134258099953285
 ParticleSystemRenderer:
   serializedVersion: 6

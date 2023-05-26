@@ -15,9 +15,9 @@ public class Bullet : MonoBehaviour
         if(_playerScript.State != Player.BulletState.Set)
         {
             GetComponent<ParticleSystem>().Play();
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetButtonDown("Fire2"))
             {
-                //Instantiate(_effect, transform.position, transform.rotation);
+                Instantiate(_effect, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
         }
@@ -25,9 +25,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "PlayArea")
-        {
-            Destroy(gameObject);
-        }
+        FindObjectOfType<Dotween>().JumpMove();
+        Destroy(gameObject);
+        //if (collision.tag == "PlayArea")
+        //{
+        //    FindObjectOfType<Dotween>().JumpMove();
+        //    Destroy(gameObject);
+        //}
     }
 }

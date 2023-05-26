@@ -26,13 +26,19 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(_bulletTag))
         {
-            Destroy(this.gameObject);
             var par = Instantiate(_destroyParticle);
             Destroy(par, 4);
+            Destroy(this.gameObject);
         }
         else if (!collision.gameObject.CompareTag(_groundTag))
         {
             _isCollision = true;
         }
+    }
+    private void OnParticleCollision(GameObject other)
+    {
+        var par = Instantiate(_destroyParticle);
+        Destroy(par, 4);
+        Destroy(this.gameObject);
     }
 }

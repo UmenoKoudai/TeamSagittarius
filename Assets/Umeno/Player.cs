@@ -44,8 +44,10 @@ public class Player : MonoBehaviour
         {
             if (_state == BulletState.Set)
             {
+                Debug.Log(_state);
                 if (Input.GetButton("Fire1"))
                 {
+                    AudioController.Instance.SePlay(SelectAudio.Draw);
                     var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     mousePosition.z = 0;
                     _muzzle.transform.position = mousePosition;
@@ -60,6 +62,7 @@ public class Player : MonoBehaviour
                 }
                 if (Input.GetButtonUp("Fire1"))
                 {
+                    AudioController.Instance.SePlay(SelectAudio.Shoot);
                     Vector3 dir = _basePosition - _muzzle.position;
                     float power = Vector3.Distance(_basePosition, _muzzle.position);
                     Rigidbody2D bulletRb = _nowBullet.GetComponent<Rigidbody2D>();
@@ -74,10 +77,16 @@ public class Player : MonoBehaviour
 
             }
         }
+    }
+
+    public void Spown()
+    {
+        Debug.Log("�Ă΂ꂽ");
         if (_bulletList.Count != 0)
         {
             if (FindObjectsOfType<Bullet>().Length < 1)
             {
+                Debug.Log("�Ă΂ꂽ2");
                 _nowBullet = Instantiate(_bulletList[0], _basePosition, transform.rotation);
                 _bulletList.RemoveAt(0);
                 Destroy(_storage.transform.GetChild(0).gameObject);

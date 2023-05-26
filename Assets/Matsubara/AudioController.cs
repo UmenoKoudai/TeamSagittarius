@@ -26,7 +26,10 @@ public class AudioController : SingletonMonoBehaviour<AudioController>
 
 public enum SelectAudio
 {
-    Failed,　//失敗音
-    Success,　//成功音
-    Click,　//クリック音
+    Enemy,
+    Start,
+    GameOver,
+    Explode,
+    Draw,
+    Shoot,
 }

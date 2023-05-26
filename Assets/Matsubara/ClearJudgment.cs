@@ -13,25 +13,17 @@ public class ClearJudgment : MonoBehaviour
     [SerializeField] GameObject _gameOverPanel;
     void Start()
     {
-        _enemy = GameObject.FindGameObjectsWithTag(_enemyTag);
         _changer = FindAnyObjectByType<SceneChanger>();
         _bulletList = FindAnyObjectByType<Player>().BulletList;
         _gameOverPanel.SetActive(false);
     }
     private void Update()
     {
-        foreach (GameObject enemy in _enemy)
-        {
-            if (enemy == null)
-            {
-                _destroyEnemyCount++;
-            }
-        }
-        if (_destroyEnemyCount == _enemy.Length)
+        if (FindObjectsOfType<EnemyController>().Length < 1)
         {
             GameClear();
         }
-        if (_bulletList.Count < 0)
+        if (FindObjectOfType<Player>().State == Player.BulletState.NoBullets && FindObjectsOfType<EnemyController>().Length >= 1)
         {
             GameOver();
         }
