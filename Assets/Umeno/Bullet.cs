@@ -12,11 +12,12 @@ public class Bullet : MonoBehaviour
     }
     void Update()
     {
-        if(_playerScript.State == Player.BulletState.Sky)
+        if(_playerScript.State != Player.BulletState.Set)
         {
+            GetComponent<ParticleSystem>().Play();
             if(Input.GetButtonDown("Fire1"))
             {
-                Instantiate(_effect, transform.position, transform.rotation);
+                //Instantiate(_effect, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
         }
