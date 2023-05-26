@@ -2185,7 +2185,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6316082033763838887, guid: 21ffb86d3ca62734dad701cbf9fa8f74, type: 3}
       propertyPath: m_Name
-      value: GameObject
+      value: Particle
       objectReference: {fileID: 0}
     - target: {fileID: 6316082033763838906, guid: 21ffb86d3ca62734dad701cbf9fa8f74, type: 3}
       propertyPath: m_RootOrder
