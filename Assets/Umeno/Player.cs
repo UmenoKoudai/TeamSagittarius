@@ -38,8 +38,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         Debug.Log(_state);
-        //_leftLine.SetPosition(0, _left.position);
-        //_rightLine.SetPosition(0, _right.position);
+        _leftLine.SetPosition(0, _left.position);
+        _rightLine.SetPosition(0, _right.position);
         if (_state != BulletState.NoBullets)
         {
             if (_state == BulletState.Set)
@@ -50,14 +50,14 @@ public class Player : MonoBehaviour
                     mousePosition.z = 0;
                     _muzzle.transform.position = mousePosition;
                     _nowBullet.transform.position = _muzzle.transform.position;
-                    //_leftLine.SetPosition(1, _muzzle.position);
-                    //_rightLine.SetPosition(1, _muzzle.position);
+                    _leftLine.SetPosition(1, _muzzle.position);
+                    _rightLine.SetPosition(1, _muzzle.position);
                 }
-                //else
-                //{
-                //    _leftLine.SetPosition(1, _basePosition);
-                //    _rightLine.SetPosition(1, _basePosition);
-                //}
+                else
+                {
+                    _leftLine.SetPosition(1, _basePosition);
+                    _rightLine.SetPosition(1, _basePosition);
+                }
                 if (Input.GetButtonUp("Fire1"))
                 {
                     Vector3 dir = _basePosition - _muzzle.position;
